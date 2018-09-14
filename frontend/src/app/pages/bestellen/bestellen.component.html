@@ -1,0 +1,14 @@
+<div>
+    <form (ngSubmit)="addToOrder(newProduct, newAantal); newProduct=''; newAantal='';">
+        <button class="btn btn-lg btn-outline-success" type="submit">Koffie</button>
+    </form>
+</div>
+
+<div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item" *ngFor="let product of bestelling">
+            {{product.name}}} test
+        </li>
+    </ul>
+    test2
+</div>
