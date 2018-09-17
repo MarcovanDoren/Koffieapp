@@ -1,14 +1,18 @@
 <div>
-    <form (ngSubmit)="addToOrder(newProduct, newAantal); newProduct=''; newAantal='';">
-        <button class="btn btn-lg btn-outline-success" type="submit">Koffie</button>
-    </form>
+    <h3>Kies uw drank</h3>
+    
+        <button class="btn btn-lg btn-outline-success" (click)="addToOrder('Koffie', newAantal);">Koffie</button>
+        <button class="btn btn-lg btn-outline-success" (click)="addToOrder('Cappucino', newAantal);">Cappucino</button>
+        <button class="btn btn-lg btn-outline-success" (click)="addToOrder('Latte Machiato', newAantal);">Latte Machiato</button>
+        <button class="btn btn-lg btn-outline-success" (click)="addToOrder('Thee', newAantal);">Thee</button>
 </div>
-
+<hr>
 <div>
+    <h3>Bestelling</h3>
     <ul class="list-group list-group-flush">
-        <li class="list-group-item" *ngFor="let product of bestelling">
-            {{product.name}}} test
+        <li class="list-group-item" *ngFor="let bestelling of bestellingen">
+            {{bestelling.aantal}}x {{bestelling.name}} 
         </li>
     </ul>
-    test2
+    
 </div>

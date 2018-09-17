@@ -7,14 +7,21 @@ import {Product} from '../../@core/product';
   styleUrls: ['./bestellen.component.scss']
 })
 export class BestellenComponent implements OnInit {
-  bestellingen;
+  bestellingen = [ ];
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  addToOrder(product: Product, aantal: number): void {
-    this.bestellingen.push(product ? product : 'Koffie', aantal ? aantal : 1);
+  addToOrder(product: string, aantal: number): void {
+    for (const s of this.bestellingen) {
+        if (s.name === product) {
+         s.aantal++;
+          return;
+        }
+    }
+    const newProduct = new Product(product ? product : 'Koffie', aantal ? aantal : 1);
+    this.bestellingen.push(newProduct);
   }
 }
