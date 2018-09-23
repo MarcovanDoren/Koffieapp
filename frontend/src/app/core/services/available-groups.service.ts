@@ -33,7 +33,7 @@ export class AvailableGroupsService {
       return false;
   }
   editGroup(group: Group): boolean {
-    if (group.newName === ''){
+    if (group.newName === '') {
       return false;
     }
     for (let i = 0; i < this.availableGroups.length; i++) {
