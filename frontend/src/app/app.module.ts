@@ -9,10 +9,13 @@ import { PagesModule } from './pages/pages.module';
 import { SharedModule } from './shared/shared.module';
 import { PagesComponent } from './pages/pages.component';
 
+import { GroupComponent } from './pages/user/group/group.component';
+
 @NgModule({
   declarations: [
     AppComponent,
-    PagesComponent
+    PagesComponent,
+    GroupComponent
   ],
   imports: [
     BrowserModule,

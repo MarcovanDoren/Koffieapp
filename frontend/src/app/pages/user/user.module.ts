@@ -6,6 +6,6 @@ import { GroupComponent } from './group/group.component';
   imports: [
     CommonModule
   ],
-  declarations: [GroupComponent]
+  declarations: []
 })
 export class UserModule { }

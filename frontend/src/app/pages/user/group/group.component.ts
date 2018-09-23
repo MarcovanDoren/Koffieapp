@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { AvailableGroupsService } from '../../../core/services/available-groups.service';
 
-
+import { Group } from '../../../core/classes/group';
 
 @Component({
   selector: 'app-group',
@@ -23,19 +23,28 @@ export class GroupComponent implements OnInit {
     if (!this.availableGroupsService.createGroup(newName)) {
       this.messageHeader = 'Groep bestaat reeds';
       this.message = 'Er bestaat reeds een groep met deze naam. De groep is niet aangemaakt';
+      this.openModal();
     }
   }
-  deleteGroup(group: string) {
+  deleteGroup(group: Group) {
     if (!this.availableGroupsService.deleteGroup(group)) {
       this.messageHeader = 'Groep niet gevonden';
       this.message = 'Er bestaat geen groep met deze naam. De groep is niet verwijderd. Neem contact op met uw beheerder.';
+      this.openModal();
     }
   }
-
-  openModel() {
+  editGroup(group: Group) {
+    if (!this.availableGroupsService.editGroup(group)) {
+      this.messageHeader = 'Groep bestaat reeds';
+      this.message = 'Er bestaat al een groep met deze naam. De groepsnaam is niet aangepast.';
+      this.openModal();
+    }
+    group.edit = false;
+  }
+  openModal() {
     this.myModal.nativeElement.className = 'modal fade show';
   }
-  closeModel() {
+  closeModal() {
      this.myModal.nativeElement.className = 'modal hide';
   }
 }

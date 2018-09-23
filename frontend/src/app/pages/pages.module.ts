@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { PagesRouterModule } from './pages-router.module';
 import { OrderModule } from './order/order.module';
 import { UserModule } from './user/user.module';
-import { GroupModule } from './user/group/group.module';
 
 import { GroupComponent } from './user/group/group.component';
 
@@ -13,8 +12,6 @@ import { GroupComponent } from './user/group/group.component';
     PagesRouterModule,
     OrderModule,
     UserModule,
-    GroupModule,
-    GroupComponent,
   ],
   declarations: []
 })

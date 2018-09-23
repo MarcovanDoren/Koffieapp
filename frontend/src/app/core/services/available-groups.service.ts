@@ -15,22 +15,40 @@ export class AvailableGroupsService {
     return this.availableGroups;
   }
   createGroup(group: string): boolean {
-    for (const existingGroup in this.availableGroups) {
-      if (existingGroup === group) {
+    for (let i = 0; i < this.availableGroups.length; i++) {
+      if (this.availableGroups[i].name === group) {
         return false;
       }
     }
     this.availableGroups.push(new Group(group));
       return true;
   }
-  deleteGroup(group: string): boolean {
-    for (const existingGroup in this.availableGroups) {
-      if (existingGroup === group) {
-        this.availableGroups.splice(this.availableGroups.indexOf(new Group(existingGroup)), 1);
+  deleteGroup(group: Group): boolean {
+    for (let i = 0; i < this.availableGroups.length; i++) {
+      if (this.availableGroups[i] === group) {
+        this.availableGroups.splice(i, 1);
         return true;
       }
     }
       return false;
+  }
+  editGroup(group: Group): boolean {
+    if (group.newName === ''){
+      return false;
+    }
+    for (let i = 0; i < this.availableGroups.length; i++) {
+      if (this.availableGroups[i].name === group.newName && this.availableGroups[i] !== group) {
+        group.newName = group.name;
+        return false;
+      }
+    }
+    for (let i = 0; i < this.availableGroups.length; i++) {
+      if (this.availableGroups[i] === group) {
+        this.availableGroups[i].name = group.newName;
+        return true;
+      }
+    }
+    return true;
   }
   constructor() { }
 }
