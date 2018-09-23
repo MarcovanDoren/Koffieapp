@@ -29,8 +29,8 @@ export class OrderComponent implements OnInit {
     this.bestellingen.push(newProduct);
   }
 
-  deleteFromOrder(bestelling: Product){
-    this.bestellingen.splice(this.bestellingen.indexOf(bestelling),1);
+  deleteFromOrder(bestelling: Product) {
+    this.bestellingen.splice(this.bestellingen.indexOf(bestelling), 1);
   }
 
   clearCart(): void {

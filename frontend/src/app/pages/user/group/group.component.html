@@ -1,3 +1,33 @@
-<p>
-  group works!
-</p>
+<div class="row">
+  <div class="col-sm-12">
+     
+  </div>
+</div>
+<div class="row">
+    <form (ngSubmit)="newGroup(newName); newName='';">
+      <div class="col-sm-3">
+        
+        <input type="text" class="form-control form-control-lg" placeholder="Voer naam in" [(ngModel)]="newName" name="groupname">
+        </div>
+        <div class="3">
+          <button class="btn btn-outline-success">Toevoegen</button>
+          
+         
+      </div>
+      </form>
+</div>
+<hr>
+<div class="row">
+  <div class="col-sm-2">
+      <h3>Koffiegroepen</h3>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-4">
+      <ul class="list-group list-group-flush">
+          <li class="list-group-item" *ngFor="let availableGroup of availableGroups">
+              {{availableGroup}} <button class="float-right btn btn-danger" (click)="deleteGroup(availableGroup)"><i class="fa fa-trash"></i> </button>
+          </li>
+      </ul>
+  </div>
+</div>
