@@ -7,7 +7,7 @@
     <form (ngSubmit)="newGroup(newName); newName='';">
       <div class="col-sm-3">
         
-        <input type="text" class="form-control form-control-lg" placeholder="Voer naam in" [(ngModel)]="newName" name="groupname">
+        <input type="text" class="form-control form-control-lg" placeholder="Voer naam in" name="groupname">
         </div>
         <div class="3">
           <button class="btn btn-outline-success">Toevoegen</button>
@@ -31,3 +31,24 @@
       </ul>
   </div>
 </div>
+
+<!-- Bootstrap modal for messages -->
+<div #myModal class="modal fade" role="dialog">
+    <div class="modal-dialog">
+  
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+           <h4 class="modal-title">{{messageHeader}}</h4>
+        </div>
+        <div class="modal-body">
+          <p>{{message}}</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Sluiten</button>
+        </div>
+      </div>
+  
+    </div>
+  </div>

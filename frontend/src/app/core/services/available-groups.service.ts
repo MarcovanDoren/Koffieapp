@@ -1,16 +1,17 @@
 import { Injectable } from '@angular/core';
+import { Group } from '../classes/group';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AvailableGroupsService {
-  availableGroups: String[] = [
-    'The addicts',
-    'The most drinkers',
-    'Frequently need coffee',
-    'Thee pussy\'s'
+  availableGroups: Group[] = [
+    new Group('The addicts'),
+    new Group('The most drinkers'),
+    new Group('Frequently need coffee'),
+    new Group('Thee pussy\'s')
   ];
-  getGroups(): Array<String> {
+  getGroups(): Array<Group> {
     return this.availableGroups;
   }
   createGroup(group: string): boolean {
@@ -19,13 +20,13 @@ export class AvailableGroupsService {
         return false;
       }
     }
-    this.availableGroups.push(group);
+    this.availableGroups.push(new Group(group));
       return true;
   }
   deleteGroup(group: string): boolean {
     for (const existingGroup in this.availableGroups) {
       if (existingGroup === group) {
-        this.availableGroups.splice(this.availableGroups.indexOf(existingGroup), 1);
+        this.availableGroups.splice(this.availableGroups.indexOf(new Group(existingGroup)), 1);
         return true;
       }
     }
