@@ -5,6 +5,8 @@ import { OrderModule } from './order/order.module';
 import { UserModule } from './user/user.module';
 import { GroupModule } from './user/group/group.module';
 
+import { GroupComponent } from './user/group/group.component';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -12,6 +14,7 @@ import { GroupModule } from './user/group/group.module';
     OrderModule,
     UserModule,
     GroupModule,
+    GroupComponent,
   ],
   declarations: []
 })
